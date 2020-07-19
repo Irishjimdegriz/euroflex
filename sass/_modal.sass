@@ -1,0 +1,99 @@
+.modal
+  position: fixed
+  z-index: 199
+  left: 0
+  top: 0
+  bottom: 0
+  right: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(#000, 0.6 )
+  display: flex
+  align-items: center
+  justify-content: center
+  &__display
+    opacity: 0
+    visibility: hidden    
+  &__dialog
+    position: relative
+    max-width: 540px
+    height: 540px
+    background-color: #fac146
+    padding: 75px 55px
+  &__close
+    position: absolute
+    right: 0
+    top: 0
+    width: 28px
+    height: 28px
+    background: transparent url('../img/modal/close.svg') no-repeat center
+    border: none
+    margin: 12px
+    cursor: pointer
+  &__title
+    text-align: center
+    font-size: 24px
+    line-height: 26px
+    font-weight: 400
+  &__form
+    display: flex
+    flex-direction: column
+  &__input-group
+    align-self: center
+  &__input
+    padding: 22px 50px
+  &__but
+    margin: 0 auto
+    margin-top: 60px
+    margin-bottom: 40px
+    width: 260px
+  &__policy
+    margin-left: 20px
+    &__label
+      font-size: 11px
+      line-height: 11px
+      font-weight: 400
+      &::before
+        margin-right: 25px
+.modal-news
+  display: none
+.modal__dialog__new
+  max-width: 400px
+  height: 200px
+  background-color: #fac146
+  margin: 0 auto
+  position: absolute
+  top: 50%
+  transform: translate(0, -50%)       
+@media only screen and (max-width:600px), (max-height:560px)
+  .modal
+    &__dialog
+      max-width: 350px
+      height: 400px
+      padding: 45px 25px
+    &__form
+      padding: 5px 0px
+    &__input
+      padding: 15px 40px
+    &__but
+      margin: 0 auto
+      margin-bottom: 10px
+@media only screen and (max-width:380px)
+  .modal
+    &__dialog
+      max-width: 310px
+      padding: 45px 0px
+@media only screen and (max-height:420px)
+  .modal
+    &__title
+      font-size: 17px
+    &__dialog
+      height: 325px
+      padding: 35px 0px
+    &__input
+      padding: 10px 40px
+    &__policy
+      max-width: 290px
+      margin-left: 45px
+    &__but
+      margin: 0 auto        

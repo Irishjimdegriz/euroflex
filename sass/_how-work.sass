@@ -1,0 +1,87 @@
+.how-work
+	margin-bottom: 60px
+	&__section
+		display: flex
+		justify-content: space-between
+		&-left, &-right
+			width: 48%
+	&__header
+		margin-bottom: 14px
+	&__title
+		font-size: 24px
+		font-weight: 900
+		line-height: 16px
+		margin-bottom: 16px
+	&__description
+		margin-bottom: 38px
+		font-size: 18px
+		font-weight: 400
+		line-height: 26px
+	&__list
+		&-item
+			&_bold
+				font-size: 14px
+				font-weight: 900
+				line-height: 26px	
+				margin-right: 12px
+	&__main-slide-2
+		display: none
+	&__preview
+		&-slides
+			width: 560px
+			display: flex
+			justify-content: space-between
+.background-center
+	display: block
+	position: relative
+	padding-top: 115px
+	padding-bottom: 25px
+	&::after
+		content: ""
+		background: url('../img/how-work/background.jpg') no-repeat center
+		opacity: 0.9
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		position: absolute
+		z-index: -1
+@media only screen and (max-width:1200px)
+	.how-work
+		&__section
+			flex-direction: column
+			align-items: center
+			&-left, &-right
+				width: 82%
+				margin-bottom: 5%
+@media only screen and (max-width:1030px)
+	.how-work
+		&__section
+			&-left, &-right
+				width: 76%
+@media only screen and (max-width:700px)
+	.how-work
+		&__section
+			&-left
+				width: 60%
+			&-right
+				width: 100%
+		&__header
+			margin-bottom: 10%
+@media only screen and (max-width:590px)
+	.how-work
+		&__description
+			font-size: 14px
+			line-height: 22px
+		&__main-slide
+			display: none
+		&__preview-slides
+			max-width: 60%
+			margin: 0 auto
+			display: flex
+			flex-wrap: wrap
+		&__main-slide-2
+			display: flex
+			margin: 0 auto
+			width: 60%
+			margin-bottom: 10%															

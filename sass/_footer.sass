@@ -1,0 +1,73 @@
+.sup-footer
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  padding-bottom: 30px
+  flex-wrap: wrap
+.sub-footer
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-wrap: wrap
+  margin-top: 35px
+  margin-bottom: 40px
+.footer
+  margin-top: -35px
+  &-dotted
+    border-bottom: 2px dashed #000
+  &-card
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    flex-basis: 30%
+    &__img
+      width: 40px
+      height: 40px
+      &-wrap
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 80px
+        height: 80px
+        border: 3px solid #000
+        border-radius: 50%
+        margin-bottom: 40px
+    &__text
+      text-align: center
+      max-width: 310px
+      & a
+        text-decoration: none
+        font-size: 18px
+        line-height: 24px
+        font-weight: 400
+        color: #000
+      &-bold a
+        font-size: 30px
+        font-weight: 700
+  &__logo
+    width: 112px
+    height: 53px
+  &__text
+    opacity: 0.4
+    font-size: 14px
+    line-height: 24px
+    font-weight: 700
+@media only screen and (max-width:992px)
+  .footer
+    &-card
+      flex-basis: 47%
+      margin-bottom: 10px
+  .sup-footer
+    justify-content: center
+@media only screen and (max-width:700px)
+  .footer
+    &-card
+      flex-basis: 100%
+      margin-bottom: 25px
+@media only screen and (max-width:480px)
+  .sub-footer
+    flex-direction: column
+  .footer__logo
+    margin-bottom: 25px    
+        

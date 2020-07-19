@@ -1,0 +1,120 @@
+.buy-forms
+  &-wrap
+    background-color: #fac146
+    max-width: 1280px
+    margin: 0 auto
+    margin-top: 50px
+    margin-bottom: 90px
+    padding-top: 50px
+    padding-bottom: 30px
+  &__title
+    text-align: center
+  &__header
+    text-align: center
+    font-size: 24px
+    line-height: 22px
+    font-weight: 900
+  &__up
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 35px
+    flex-wrap: wrap
+  &__down
+    display: flex
+    align-items: center
+    justify-content: flex-start
+  &__but
+    color: #fff
+    width: 280px
+    background-color: #464749
+    box-shadow: 0px 4px 0px 0px rgba(105,107,115,0.23)
+    margin-left: 80px
+    padding-left: 20px
+    & img
+      width: 23px
+      height: 22px
+      margin-right: 14px
+  &__line
+    background-color: #5d5e66
+.input-group
+  flex-basis: 29%
+.form
+  padding: 30px 60px
+  &__input
+    color: #000000
+    background-color: transparent
+    border: none
+    border-bottom: 1px solid #000000
+    padding: 20px 95px
+    font-family: 'Muller'
+    font-size: 14px
+    line-height: 16px
+    font-weight: 400
+    &::placeholder
+        color: #000000
+        text-align: center
+.policy
+  position: relative
+  max-width: 360px
+  &__checkbox
+    opacity: 0
+    visibility: hidden
+    position: absolute
+    &:checked +
+      .policy__label
+        &::before
+          background: #fff url('../img/form/check.svg') no-repeat center
+  &__label
+    display: flex
+    align-items: center
+    font-size: 12px
+    line-height: 18px
+    font-weight: 400
+    &::before
+      content: ''
+      width: 32px
+      height: 21px
+      cursor: pointer
+      background-color: #fff
+      margin-right: 15px
+@media only screen and (max-width:1200px)
+  .input-group 
+    flex-basis: 35%
+    margin-bottom: 20px
+    margin-right: 20px
+  .buy-forms
+    &__up
+      justify-content: center
+    &__down
+      justify-content: center
+    &__but
+      margin-left: 0
+@media only screen and (max-width:700px)
+  .input-group 
+    flex-basis: 100%
+    display: flex
+    justify-content: center
+    margin-right: 0
+  .buy-forms
+    &__title
+      max-width: 375px
+      margin: 0 auto
+    &__up
+      margin-bottom: 15px
+    &__down
+      justify-content: center
+      flex-direction: column
+    &__but
+      order: 1
+    &__header-hide
+      display: none
+  .form__input
+    padding: 20px 50px
+  .policy 
+    width: 270px
+    order: 2
+    margin-top: 15px
+    &__label
+      &::before
+        width: 45px

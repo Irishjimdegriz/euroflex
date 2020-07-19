@@ -1,0 +1,62 @@
+.all-inclusive
+	margin-bottom: 110px
+	&__header
+		margin-bottom: 30px
+	&-cards
+		display: flex 
+		justify-content: space-between 
+		flex-wrap: wrap		
+	&-card 
+		&__item
+			width: 22%
+			&-title
+				font-size: 18px
+				font-weight: 900
+				line-height: 16px
+				display: block
+				margin-bottom: 10px
+			&-img
+				margin-bottom: 20px
+	&-slider
+		display: none				
+.background-header
+	display: block
+	position: relative
+	padding-top: 100px
+	padding-bottom: 45px
+	margin-top: -175px
+	&::after
+		content: ""
+		background: url('../img/all-inclusive/background.jpg') no-repeat center
+		opacity: 0.9
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		position: absolute
+		z-index: -1
+@media only screen and (max-width:992px)
+	.all-inclusive
+		&-cards
+			justify-content: space-around
+		&-card__item 
+			flex-basis: 40%
+			max-width: 335px
+			margin-top: 20px
+@media only screen and (max-width:700px)
+	.all-inclusive
+		&-cards
+			display: none
+		&-slider
+			display: block
+			margin-top: 30px
+		&-card__item
+			text-align: center
+			flex-basis: 60%
+		&-slide
+			display: flex
+			justify-content: center		
+@media only screen and (max-width:420px)
+	.all-inclusive
+		&-card__item
+			flex-basis: 80%			

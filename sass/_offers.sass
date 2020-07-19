@@ -1,0 +1,146 @@
+$color-yelow-sait: #fac146
+.title
+	&-document
+		display: flex
+		&__offers
+			margin-bottom: 1%
+		&__section
+			&-1
+				position: relative
+				width: 100px
+				height: 120px
+				display: flex
+				align-items: flex-end
+				margin-bottom: 50px
+		&__little
+			&-text
+				display: block
+				width: 100px
+				color: #abacb2
+				font-size: 12px
+				position: absolute
+				transform: rotate(-90deg)
+				left: -44%
+				top: 52%
+		&__orange
+			&-text 
+				display: block
+				color: #010101
+				font-family: "Plumb"
+				font-size: 23px
+				font-weight: 300
+				line-height: 16px
+				text-transform: uppercase
+				background-color: $color-yelow-sait 
+				transform: rotate(-90deg)
+				width: 120px
+				height: 22px
+				position: absolute
+				left: -29%
+				top: 42%
+		&__header
+			font-size: 47px
+			font-weight: 400
+			line-height: 50px
+			margin-bottom: 12px
+			&_bold
+				font-weight: 900
+		&__dots
+			display: flex
+			margin-bottom: 26px
+		&__dot
+			width: 7px
+			height: 7px
+			border-radius: 50%
+			background-color: $color-yelow-sait
+			margin-right: 26px
+.offers
+	&-cards
+		&__item
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			&-img
+				width: 40px
+				margin-left: 80%
+			&-wrap
+				&-img
+					width: 30%
+					margin-bottom: 3%
+					background-color: #fff
+					border-radius: 5px
+					display: flex
+					flex-direction: column
+					padding-left: 3%
+					box-shadow: 0 10px 30px 0 #49474780
+		&__title 
+			font-size: 18px
+			font-weight: 900
+			line-height: 20px
+			margin-top: 20px
+		&__description
+			padding-bottom: 5%
+			width: 85%
+		&__line
+			width: 10px
+			height: 1.55px
+			background-color: #000
+			margin-bottom: 21.55px
+	&-footer
+		padding: 40px 40px 20px 40px
+		border: 1px dotted #000
+		margin-bottom: 100px
+	&-footer p 
+		font-size: 14px
+		margin-bottom: 20px
+	&-slider
+		display: none
+@media only screen and (max-width:992px)
+	.offers
+		&-cards__item 
+			justify-content: space-around
+			margin-top: 30px
+			&-wrap-img
+				flex-basis: 40%
+@media only screen and (max-width:700px)
+	.offers
+		&-cards__item 
+			display: none
+		&-slider
+			display: block
+			margin-top: 30px
+		&-cards__item-wrap-img
+			flex-basis: 100%
+			max-width: 320px
+			box-shadow: 0 10px 15px 0 #49474780
+		&-slide
+			display: flex
+			justify-content: center
+		&-navigation
+				margin-bottom: 30px
+		&-footer
+			max-width: 320px
+			margin: 0 auto
+			margin-bottom: 100px
+	.title
+		&-document
+			justify-content: center
+			&__section
+				&-1
+					display: none
+				&-2
+					max-width: 315px
+			&__header
+				font-size: 30px
+				line-height: 30px
+@media only screen and (max-width:350px)
+	.offers
+		&-cards__item-wrap-img
+			max-width: 275px
+		&-footer
+			max-width: 275px
+	.title
+		&-document
+			&__section
+				&-2
+					max-width: 275px						

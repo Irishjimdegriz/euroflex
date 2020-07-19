@@ -1,0 +1,208 @@
+$color-yelow-sait: #fac146
+$background-color-icon-header: #ebecf0
+$color-daytime: #abacb2
+$color-line-button: #000000
+.main
+	&-menu
+		display: flex
+		padding-top: 40px
+		z-index: 7
+		&__logo
+			width: 168px
+			height: 79px
+			&-img
+				width: 100%
+		&__items
+			display: flex
+			align-items: center
+			padding: 0
+			margin-left: 0
+			margin-right: 17px
+		&__item 
+			list-style-type: none
+			display: flex
+			align-items: center
+			& a
+				text-decoration: none
+				color: #000
+			&-marker
+				display: block
+				width: 3px
+				height: 3px
+				border-radius: 50%
+				background-color: $color-yelow-sait
+				margin-left: 10px
+				margin-right: 15px		 
+		&__cards, &__mode
+			display: flex
+			align-items: center
+			justify-content: center
+			&-icon
+				width: 40px
+				height: 40px
+				border-radius: 50%
+				background-color: $background-color-icon-header
+				margin-right: 19px
+				display: flex
+				align-items: center
+				justify-content: center
+			&-title
+				margin-right: 21px
+				& a 
+					text-decoration: none	
+					color: #000			
+		&__mode
+			&-wrap
+				display: flex
+				flex-direction: column
+				align-items: flex-end	
+				justify-content: center
+				margin-top: -10px
+				margin-right: 31px
+			&-work
+				font-family: 'Muller'
+				font-size: 24px
+				font-weight: 500
+				line-height: 16px
+				& a
+					text-decoration: none
+					color: #000
+			&_bold
+				font-weight: 700
+			&-daytime
+				font-size: 12px
+				font-weight: 400
+				line-height: 16px
+				color: $color-daytime
+			&-but
+				&-wrap
+					display: flex
+					align-items: center
+			&-but
+				display: flex
+				padding-top: 20px
+				padding-bottom: 20px
+				padding-left: 25px
+				cursor: pointer
+				width: 240px
+				height: 60px
+				box-shadow: 0 4px 0 rgba(106, 107, 115, 0.23)
+				border-radius: 5px
+				border: none
+				background-color: $color-yelow-sait
+				outline: none
+				font-size: 14px
+				font-weight: 400
+				&-img
+					margin-right: 17px
+					width: 20px
+					height: 20px
+			&-line
+				height: 20px
+				width: 1px
+				margin-right: 19px
+				background-color: $color-line-button
+.hamburger-menu
+  display: none
+#menu__toggle 
+  opacity: 0
+#menu__toggle:checked ~ .menu__btn > span
+  transform: rotate(45deg)
+#menu__toggle:checked ~ .menu__btn > span::before 
+  top: 0
+  transform: rotate(0)
+#menu__toggle:checked ~ .menu__btn > span::after 
+  top: 0
+  transform: rotate(90deg)
+#menu__toggle:checked ~ .menu__box
+  visibility: visible
+  left: 0
+.menu__btn 
+  display: flex
+  align-items: center
+  position: fixed
+  width: 26px
+  height: 26px
+  cursor: pointer
+  z-index: 200
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after 
+  display: block
+  position: absolute
+  width: 100%
+  height: 2px
+  background-color: #000
+  transition-duration: .25s
+.menu__btn > span::before 
+  content: ''
+  top: -8px
+.menu__btn > span::after
+  content: ''
+  top: 8px
+.menu__box 
+	display: block
+	position: fixed
+	visibility: hidden
+	top: 0
+	left: 80%
+	width: 100%
+	height: 100%
+	margin: 0
+	padding: 40% 24%
+	list-style: none
+	background-color: #f6f6f8
+	box-shadow: 1px 0px 6px rgba(0, 0, 0, .2)
+	transition-duration: .25s
+	z-index: 199
+.menu__item 
+  display: block
+  padding: 12px 24px
+  color: #333
+  font-size: 20px
+  font-weight: 600
+  text-decoration: none
+  transition-duration: .25s				
+@media only screen and (max-width:1170px)
+	.main
+		&-menu
+			&__item
+				padding-left: 20px
+				&-marker
+					display: none
+			&__cards, &__mode
+				&-icon
+					display: none
+@media only screen and (max-width:1080px)
+	.main-menu
+		justify-content: space-around
+		&__mode-but-wrap-hide
+			display: none
+@media only screen and (max-width:830px)
+	.main-menu
+		&__cards
+			display: none
+		&__mode
+			&-wrap
+				margin-right: 0
+@media only screen and (max-width:700px)
+	.hamburger-menu
+  	display: block
+	.main-menu
+		justify-content: center
+		position: fixed
+		width: 100%
+		padding: 20px 20px
+		padding-right: 25px
+		background-color: #f6f6f8
+		&__logo
+			margin-right: 130px
+		&__items
+			display: none
+		&__mode
+			&-wrap
+				display: none
+@media only screen and (max-width:350px)
+	.main-menu
+		&__logo
+			margin-right: 90px					

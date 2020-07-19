@@ -1,0 +1,177 @@
+.background-raiting
+  background: url('../img/rating/background.jpg') no-repeat center
+  background-color: #fac146
+.rating
+  padding-top: 60px
+  padding-bottom: 50px
+  &__title
+    font-size: 22px
+    line-height: 16px
+    font-weight: 900
+  &__description
+    font-size: 14px
+    line-height: 25px
+    font-weight: 400
+    margin-top: 10px
+  &__form
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-start
+    margin-top: 15px
+    &-wrap
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
+      margin-top: 25px
+    &-title
+      font-size: 14px
+      line-height: 16px
+      font-weight: 700
+    &-column 
+      max-width: 220px
+    &-input
+      border: none
+      border-radius: 5px
+      padding: 21px 15px
+      margin-right: 20px
+      margin-bottom: 20px
+      &::placeholder
+        font-size: 14px
+        line-height: 16px
+        font-weight: 400
+        color: #000000
+        text-align: center
+      &-big
+        padding: 60px 24px
+      &-wrap
+        display: flex
+        flex-direction: row
+        margin-bottom: 15px
+    &-call-title
+      font-size: 14px
+      line-height: 16px
+      font-weight: 700
+    &-checkbox-wrap
+      display: flex
+      flex-direction: row
+      margin-top: 15px
+    &-checkbox
+      margin-right: 35px
+    &-label
+      font-size: 14px
+      line-height: 16px
+      font-weight: 400
+      &::before
+        width: 21px
+        margin-right: 20px
+    &-buttons-wrap
+      display: flex
+      flex-direction: row
+      margin-top: 18px
+      margin-bottom: 17px
+    &-upload
+      display: flex
+      align-items: center
+      max-width: 220px
+      padding: 15px 15px
+      background: transparent
+      border: 1px solid #5d5e66
+      border-radius: 5px
+      cursor: pointer
+      &-hide
+        display: none
+      &-img
+        margin-right: 15px
+        & img
+          width: 20px
+          height: 20px
+    &-but-gray
+      margin-left: 20px
+    &-policy-text
+      font-size: 12px
+      line-height: 16px
+      font-weight: 400
+      max-width: 305px
+.title-document__dot-black
+  background-color: #000
+.title-document__black-text
+  color: #fff
+  background-color: #464749
+  letter-spacing: 0.16em
+.title-document__little-text-black
+  color: #000
+@media only screen and (max-width:1200px)
+  .background-raiting
+    background-position: 35%
+@media only screen and (max-width:770px)
+  .background-raiting
+    background-position: 50%
+  .rating
+    &__form
+      &-input
+        padding: 21px 68px
+        &-wrap
+          flex-direction: column
+        &-big
+          padding: 21px 68px
+@media only screen and (max-width:700px)
+  .background-raiting
+    background: url('../img/rating/background-medium.jpg') no-repeat center
+    background-color: #fac146
+  .rating
+    padding-bottom: 440px
+    &__title
+      display: flex
+      max-width: 300px
+      margin: 0 auto
+      line-height: 25px
+      margin-top: 30px
+      margin-bottom: 10px
+    &__description
+      max-width: 300px
+      margin: 0 auto
+    &__form
+      &-title
+        margin-right: 160px
+      &-wrap
+        align-items: center
+      &-call-title
+        margin-right: 150px
+      &-checkbox
+        margin-right: 25px
+      &-label
+        flex-direction: column
+        align-items: flex-start
+        &::before
+          margin-bottom: 20px
+      &-buttons-wrap
+        flex-direction: column
+        margin-right: 25px
+      &-upload
+        max-width: 280px
+      &-but-gray
+        margin-left: 0
+        margin-top: 10px
+      &-policy-text
+        max-width: 300px
+@media only screen and (max-width:480px)
+  .background-raiting
+    background: url('../img/rating/background-mobile.jpg') no-repeat center
+    background-color: #fac146
+  .rating
+    padding-bottom: 730px
+  .technology
+    margin-top: -375px
+@media only screen and (max-width:350px)
+  .rating
+    &__title
+      padding-left: 15px
+    &__description
+      padding-left: 15px
+    &__form
+      padding-left: 35px
+      &-title
+        margin-right: 140px
+        padding-left: 15px      

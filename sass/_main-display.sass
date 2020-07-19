@@ -1,0 +1,159 @@
+$color-yelow-sait: #fac146
+.background
+	&-main
+		&-display
+			background: url('../img/main-display/background-main-disp-3.png')
+			background-repeat: no-repeat
+			background-position: 50% 38%
+			padding-top: 86px
+			margin-bottom: 117px
+.main
+	&-display
+		position: relative
+		&__main
+			&-text 
+				font-size: 47px
+				line-height: 50px	
+				max-width: 60%
+				margin-bottom: 70px
+		&__description
+			font-weight: 400
+		&__title
+			font-weight: 900
+		&__descr
+			&-rub
+				font-size: 18px
+				margin-bottom: 10px
+		&__rub
+			font-size: 39px
+			font-weight: 700
+			margin: 0 5px 0 5px
+		&__key
+			color: #828389
+			font-weight: 700
+			font-size: 18px
+		&__sqr
+			display: flex	
+		&__coin
+			margin-bottom: 46px
+		&__grunt
+			display: flex
+			margin-left: 23px
+			&-plus
+				display: flex
+				align-items: center
+				justify-content: center
+				width: 40px
+				height: 40px
+				border-radius: 50%
+				background-color: $color-yelow-sait
+				margin-right: 20px
+			&-img
+				width: 60%
+			&-descr
+				width: 90px
+				font-size: 18px
+		&__arrow
+			position: absolute
+			top: 52%
+			left: 20%
+		&__but
+			width: 220px
+		&__bag
+			position: absolute
+			top: 11%
+			left: 23%
+		&__bags
+			position: absolute
+			top: 38%
+			left: 34%
+		&__but
+			&-wrap
+				margin-bottom: 140px
+		&__footer
+			display: flex
+			align-items: flex-end
+			&-cards, &-card
+				display: flex
+				align-items: center
+				justify-content: center
+			&-img
+				width: 70%			
+			&-back
+				&-img
+					width: 40px
+					height: 40px
+					border-radius: 50%
+					background-color: $color-yelow-sait
+					display: flex
+					align-items: center
+					justify-content: center
+					margin-right: 20px
+				&-img + span
+					margin-right: 39px
+			&-card
+				&-descr
+					&_bold
+						font-weight: 700
+			&-cards + span 
+				margin-left: 415px
+			&-link a
+				font-size: 14px
+				font-weight: 400
+				text-decoration: none
+				color: #000
+			&-link:after
+				content: url('../img/main-display/arrow-pol.png')
+				margin-left: 20px
+@media only screen and (max-width:1170px)
+	.main-display
+		&__arrow
+			top: 56%
+			left: 23%
+		&__footer-cards + span
+    	margin-left: 20%
+@media only screen and (max-width:1070px)	
+	.main-display
+		&__bags	
+			top: 36%
+			left: 36%
+		&__footer-cards + span
+    	margin-left: 15%
+	.main-display
+		&__arrow
+			left: 26%	
+@media only screen and (max-width:960px)	
+	.main-display
+		&__arrow
+			display: none
+	.main-display
+		&__bags	
+			top: 32%
+			left: 38%
+		&__footer-cards + span
+    	display: none		
+@media only screen and (max-width:790px)	
+	.main-display
+		&__bags, &__bag	
+			display: none	
+	.main-display__but
+		width: 320px
+		margin-left: 5%	
+	.main-display__main-text
+		font-size: 30px
+		line-height: 34px
+		margin-left: 5%	
+	.main-display__sqr
+		margin-left: 5%
+	.background
+		&-main
+			&-display
+				background: url('')
+				margin-left: 15%										
+@media only screen and (max-width:670px)	
+	.main-display__footer	
+		display: none	
+@media only screen and (max-width:550px)	
+	.main-display__main-text
+		font-size: 24px
+		line-height: 30px			
