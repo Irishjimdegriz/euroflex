@@ -134,7 +134,9 @@ const quizSwiper = new Swiper('.quiez__slider', {
 				if (quizSwiper.activeIndex > 0) {
 			  		prevButton.style.visibility = 'visible';
 				} else {
-			 		prevButton.style.visibility = 'hidden';
+					prevButton.style.visibility = 'hidden';
+					nextButton.style.visibility = 'hidden';
+					submitButton.querySelector('.big-arrow-text').textContent = 'Пройти тест';
 				}
 				}
 				
