@@ -307,57 +307,71 @@ const clickListener = () => {
 	dataObj.message = messageInput.value;
 	dataObj.select = 1;
 
-	postDataForm(dataObj)
-	.then(response => {
-		if (response.status !== 200) {
-			throw new Error('Что-то пошло не так...');
-		}
-		newModalView(0);
-		wallSquare.innerHTML = '1 м<sup>2</sup>';
-		wallSquareSelect.value = '1';
-		messageInput.value = '';
-		filesInput.value = '';
-
-// Вот здесь пытаюсь сбросить кнопки
-// ---------------------------------------------------------------------------------
-		const buttonPrev = document.querySelector('.quiez__swiper-button-prev'),
-			buttonNext = document.querySelectorAll('.quiez__swiper-button-next'),
-			submitButton = document.querySelector('.quiez__swiper-button-next--big'),
-			submitButtonText = submitButton.querySelector('.big-arrow-text');
-			buttonPrev.classList.add('swiper-button-disabled');
-			
-			submitButtonText.textContent = 'Следующий вопрос';
-			buttonNext[1].classList.remove('swiper-button-disabled');
-			buttonNext[1].style.visibility = 'visible';
-			submitButton.ariaDisabled = true;
-			buttonNext[1].ariaDisabled = false;
-			buttonNext[1].tabindex = 1;
-			submitButton.removeEventListener('click', clickListener);
-// ---------------------------------------------------------------------------------
-
-		const swiperWrapper = document.querySelector('#swiper-wrapper');
-		swiperWrapper.style.transform = '';
-		const swiperCustomBullet = document.querySelectorAll('.swiper-custom-bullet');
-		swiperCustomBullet.forEach((elem, index) => {
-			if (index !== 0) {
-				elem.classList.remove('swiper-pagination-bullet-active');
-			} else {
-				elem.classList.add('swiper-pagination-bullet-active');
+	// добавил проверку - если форма не заполнена, показываем модалку
+	if (checkObjectForEmptiness(dataObj)) {
+		postDataForm(dataObj)
+		.then(response => {
+			if (response.status !== 200) {
+				throw new Error('Что-то пошло не так...');
 			}
+			newModalView(0);
+			wallSquare.innerHTML = '1 м<sup>2</sup>';
+			wallSquareSelect.value = '1';
+			messageInput.value = '';
+			filesInput.value = '';
+
+	// Вот здесь пытаюсь сбросить кнопки
+	// ---------------------------------------------------------------------------------
+			const buttonPrev = document.querySelector('.quiez__swiper-button-prev'),
+				buttonNext = document.querySelectorAll('.quiez__swiper-button-next'),
+				submitButton = document.querySelector('.quiez__swiper-button-next--big'),
+				submitButtonText = submitButton.querySelector('.big-arrow-text');
+				buttonPrev.classList.add('swiper-button-disabled');
+				
+				submitButtonText.textContent = 'Следующий вопрос';
+				buttonNext[1].classList.remove('swiper-button-disabled');
+				buttonNext[1].style.visibility = 'visible';
+				submitButton.ariaDisabled = true;
+				buttonNext[1].ariaDisabled = false;
+				buttonNext[1].tabindex = 1;
+				submitButton.removeEventListener('click', clickListener);
+	// ---------------------------------------------------------------------------------
+
+			const swiperWrapper = document.querySelector('#swiper-wrapper');
+			swiperWrapper.style.transform = '';
+			const swiperCustomBullet = document.querySelectorAll('.swiper-custom-bullet');
+			swiperCustomBullet.forEach((elem, index) => {
+				if (index !== 0) {
+					elem.classList.remove('swiper-pagination-bullet-active');
+				} else {
+					elem.classList.add('swiper-pagination-bullet-active');
+				}
+			});
+			customCheckbox.forEach(item => {
+				item.checked = false;
+			});
+		})
+		.catch(error => {
+			newModalView(1, error);
+		})
+		.finally(() => {
+			setTimeout(newModalView, 5000);
 		});
-		customCheckbox.forEach(item => {
-			item.checked = false;
-		});
-	})
-	.catch(error => {
-		newModalView(1, error);
-	})
-	.finally(() => {
-		setTimeout(newModalView, 5000);
-	});
+	} else {
+		newModalView(1, "Заполните форму!");
+	}
 };
 
+// проверка заполнения формы
+const checkObjectForEmptiness = (dataObj) => {
+	for (let field in dataObj) {
+		if (dataObj[field] != undefined && dataObj[field] != '' && field != 'select' && field != 'wallSquare') {
+			return true;
+		}
+	}
 
+	return false;
+}
 
 // Валидация
 const validation = form => {
