@@ -109,14 +109,14 @@ try {
 
     // Настройки вашей почты
     $mail->Host       = 'smtp.mail.ru'; // SMTP сервера вашей почты
-    $mail->Username   = 'XXXXXXX'; // Логин на почте
-    $mail->Password   = 'XXXXXX'; // Пароль на почте
+    $mail->Username   = 'XxXXXXXX'; // Логин на почте
+    $mail->Password   = 'XDXXXXX'; // Пароль на почте
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
-    $mail->setFrom('XXXXXX@mail.ru', 'XXXXX'); // Адрес самой почты и имя отправителя
+    $mail->setFrom('XXXXXXX@mail.ru', 'Sgalk'); // Адрес самой почты и имя отправителя
 
     // Получатель письма
-    $mail->addAddress('XXXXXXXX');  
+    $mail->addAddress('XXXXXX@mail.ru');  
     // $mail->addAddress('youremail@gmail.com'); // Ещё один, если нужен
 
     // Прикрипление файлов к письму

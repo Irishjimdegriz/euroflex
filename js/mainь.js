@@ -106,8 +106,8 @@ const quizSwiper = new Swiper('.quiez__slider', {
 		el: '.quiez__swiper-pagination',
 		clickable: true,
 		renderBullet: (index, className) => {	// поменял скидку с 5% на 10%
-			return `<div class="${className} swiper-custom-bullet"><p class="quiz-bullet-discount-block"><span class="quiz-bullet-discount-percent">10%</span><br>Ваша скидка</p><div class="quiz-bullet"></div></div>`;
-	}
+		  	return `<div class="${className} swiper-custom-bullet"><p class="quiz-bullet-discount-block"><span class="quiz-bullet-discount-percent">10%</span><br>Ваша скидка</p><div class="quiz-bullet"></div></div>`;
+		}
   	},
   	on: {
 		slideChange: function () {
@@ -141,20 +141,16 @@ const quizSwiper = new Swiper('.quiez__slider', {
 				// логика для увеличения всех буллетов перед активным
 				const quizBullets = document.querySelectorAll('.quiz-bullet');
 
-				for (let i = 0; i < quizBullets.length; i++) {
-					if (i <= quizSwiper.activeIndex) {
-						quizBullets[i].style.height = '21px';
-						quizBullets[i].style.width = '21px';
-						quizBullets[i].style.marginTop = '5px';
-					} else {
-						quizBullets[i].style.height = '11px';
-						quizBullets[i].style.width = '11px';
-						quizBullets[i].style.marginTop = '11px';
-					}
+				for (let i = 0; i <= quizSwiper.activeIndex; i++) {
+					quizBullets[i].style.height = '21px';
+					quizBullets[i].style.width = '21px';
+					quizBullets[i].style.marginTop = '5px';
 				}
 		}
   	}
 });
+
+
 
 
 const range = document.querySelector('.wall-square-select'),
@@ -265,7 +261,7 @@ const clickListener = () => {
 	    customCheckbox = document.querySelectorAll('.custom-checkbox'),
 	    wallSquareSelect = document.querySelector('.wall-square-select');
 
-
+console.log(wallSquare);
 	const enumerateButtons = (buttons, field, isRadio) => {
 			for (let button of buttons) {
 			if (button.checked === true) {
@@ -315,34 +311,6 @@ const clickListener = () => {
 		wallSquareSelect.value = '1';
 		messageInput.value = '';
 		filesInput.value = '';
-
-// Вот здесь пытаюсь сбросить кнопки
-// ---------------------------------------------------------------------------------
-		const buttonPrev = document.querySelector('.quiez__swiper-button-prev'),
-			buttonNext = document.querySelectorAll('.quiez__swiper-button-next'),
-			submitButton = document.querySelector('.quiez__swiper-button-next--big'),
-			submitButtonText = submitButton.querySelector('.big-arrow-text');
-			buttonPrev.classList.add('swiper-button-disabled');
-			
-			submitButtonText.textContent = 'Следующий вопрос';
-			buttonNext[1].classList.remove('swiper-button-disabled');
-			buttonNext[1].style.visibility = 'visible';
-			submitButton.ariaDisabled = true;
-			buttonNext[1].ariaDisabled = false;
-			buttonNext[1].tabindex = 1;
-			submitButton.removeEventListener('click', clickListener);
-// ---------------------------------------------------------------------------------
-
-		const swiperWrapper = document.querySelector('#swiper-wrapper');
-		swiperWrapper.style.transform = '';
-		const swiperCustomBullet = document.querySelectorAll('.swiper-custom-bullet');
-		swiperCustomBullet.forEach((elem, index) => {
-			if (index !== 0) {
-				elem.classList.remove('swiper-pagination-bullet-active');
-			} else {
-				elem.classList.add('swiper-pagination-bullet-active');
-			}
-		});
 		customCheckbox.forEach(item => {
 			item.checked = false;
 		});
@@ -358,7 +326,7 @@ const clickListener = () => {
 
 
 // Валидация
-const validation = form => {
+const validation = (form, statusMessage) => {
 	maskPhone('#user-phone');
 	form.querySelectorAll('input').forEach(elem => {
 		elem.addEventListener('input', event => {
@@ -389,57 +357,10 @@ const sendData = () => {
 	form = [...forms];
 	form[form.length] = ratingForm;
   	form.forEach(item => {
-
-  		const sendForm = () => {
-		  	const formData = new FormData(item);
-			formData.forEach((elem, index) => {
-				body[index] = elem;
-				const button = item.querySelectorAll('button');
-				button.forEach(but => {
-					if (but.style.display !== 'none') {
-						body.val = but.textContent.trim();
-					}
-				});
-				if (event.target.matches('.form')) {
-					body.select = 0;
-				}
-				if (event.target.matches('.rating__form')) {
-					body.select = 3;
-				}  
-			});
-
-			postDataForm(body)
-			.then(response => {
-				if (response.status !== 200) {
-				  	throw new Error('Что-то пошло не так...');
-				}
-				newModalView(0);
-				item.querySelectorAll('input').forEach(elem => {
-			   		elem.value = '';
-				});
-				if (item.querySelector('input[name="policyCheckbox"]')) {
-					item.querySelector('input[name="policyCheckbox"]').checked = false;
-				}
-				if (item.querySelectorAll('.rating__form-checkbox')) {
-					item.querySelectorAll('.rating__form-checkbox').forEach(con => {
-						con.querySelector('input').checked = false;
-					});
-				}
-			})
-			.catch(error => {
-				newModalView(1, error);
-			})
-			.finally(() => {
-				setTimeout(newModalView, 5000);
-			});
-		}; 
-
 		validation(item);
-
 		item.addEventListener('submit', event => {
 		  	event.preventDefault();
 		  	const arrCkeck = item.querySelector('input[name="policyCheckbox"]');
-		  	const arrCheckConnect = item.querySelectorAll('.rating__form-checkbox');
 		  	if (arrCkeck && !arrCkeck.checked) {
 		  		item.querySelector('.policy__label').style.border = '2px solid red';
 		  		arrCkeck.addEventListener('change', () => {
@@ -448,32 +369,43 @@ const sendData = () => {
 		  			}
 		  		});
 		  		return;
-		  	} 
-		  	if (!arrCkeck && arrCheckConnect) {
-				let count = 0;
-				arrCheckConnect.forEach(con => {
-					if (con.querySelector('input').checked) {
-						return;
-					} else {
-						count ++;
-					}
-				});
-				if (count > 0 && count === arrCheckConnect.length) {
-					document.querySelector('.rating__form-checkbox-wrap').style.border = 'solid 2px red';
-					arrCheckConnect.forEach(con => {
-						con.addEventListener('change', () => {
-							document.querySelector('.rating__form-checkbox-wrap').style.border = 'none';
-						});
+		  	} else {
+			  	const formData = new FormData(item);
+				formData.forEach((elem, index) => {
+					body[index] = elem;
+					// body.policyCheckbox = (body.policyCheckbox === 'on') ? 'Да' : 'Нет';
+					const button = item.querySelectorAll('button');
+					button.forEach(but => {
+						if (but.style.display !== 'none') {
+							body.val = but.textContent.trim();
+						}
 					});
-					count =0;
-				} else {
-					count =0;
-					document.querySelector('.rating__form-checkbox-wrap').style.border = 'none';
-					sendForm();
-				}
-			} else {
-				sendForm();
-		  	} 
+					if (event.target.matches('.form')) {
+						body.select = 0;
+					}
+					if (event.target.matches('.rating__form')) {
+						body.select = 3;
+					}  
+				 });
+
+				postDataForm(body)
+				.then(response => {
+					if (response.status !== 200) {
+					  	throw new Error('Что-то пошло не так...');
+					}
+					newModalView(0);
+					item.querySelectorAll('input').forEach(elem => {
+				   		elem.value = '';
+				  	});
+				})
+				.catch(error => {
+					newModalView(1, error);
+				})
+				.finally(() => {
+					setTimeout(newModalView, 5000);
+				});
+		  	}
+
 		});
 	});
 };
